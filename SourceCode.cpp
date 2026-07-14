@@ -1,19 +1,19 @@
-// Start Code!!
 #include <iostream>
-#include<iomanip>
-#include<fstream>
-#include<string>
+#include <iomanip>
+#include <fstream>
+#include <string>
 using namespace std;
 
-struct Expense{
-	int id;
-	string type, category, title, priority;
-	float amount;
-	string date;
+struct Expense
+{
+    int id;
+    string type, category, title, priority;
+    float amount;
+    string date;
 };
 
 int MAX_RECORDS = 50;
-Expense* records = NULL;
+Expense *records = NULL;
 int record_count = 0;
 string fileName = "MyMoneyMap.txt";
 
@@ -27,6 +27,19 @@ void deleteRecord();
 void summary();
 void menu();
 bool returnToMenu();
+
+void menu()
+{
+    system("cls");
+    cout << "======== MoneyMap ========\n";
+    cout << "-- 1. Add Record\n";
+    cout << "-- 2. View Records\n";
+    cout << "-- 3. Update Record\n";
+    cout << "-- 4. Delete Record\n";
+    cout << "-- 5. Summary\n";
+    cout << "-- 0. Exit\n";
+}
+
 int main()
 {
     records = new Expense[MAX_RECORDS]; // dynamic memory allocation
