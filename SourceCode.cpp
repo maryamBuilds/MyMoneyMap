@@ -17,7 +17,7 @@ Expense *records = NULL;
 int record_count = 0;
 string fileName = "MyMoneyMap.txt";
 
-bool login();
+void login();
 void loadFromFile();
 void saveToFile();
 void addRecord();
@@ -27,6 +27,48 @@ void deleteRecord();
 void summary();
 void menu();
 bool returnToMenu();
+
+void login()
+{
+    string username, password;
+    const string correctUser = "SmartSaver";
+    const string correctPass = "12345";
+    system("cls");
+    cout << "===============================================\n";
+    cout << "               WELCOME TO MoneyMap             \n";
+    cout << "===============================================\n\n";
+    do
+    {
+        cout << "Enter Username: ";
+        getline(cin, username);
+
+        cout << "Enter Password: ";
+        getline(cin, password);
+        if (username != correctUser || password != correctPass)
+        {
+            cout << "\n-- Invalid credentials! Please try again. --\n\n";
+        }
+    } while (username != correctUser || password != correctPass);
+    cout << "\n------------------------------------------------\n";
+    cout << "--------------- Login Successful!---------------\n";
+    cout << "------------- Welcome, " << username << "! -------------\n";
+    cout << "-- Manage your finances smartly with MoneyMap --\n";
+    cout << "\n================================================\n\n";
+    system("pause");
+}
+
+bool returnToMenu()
+{
+    char choice;
+    cout << "\n=== Do you want to return to menu? (y/n): ";
+    cin >> choice;
+    if (choice == 'y' || choice == 'Y')
+    {
+        return true;
+    }
+    else
+        return false;
+}
 
 void menu()
 {
