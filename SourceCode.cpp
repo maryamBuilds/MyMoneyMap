@@ -57,17 +57,14 @@ void login()
     system("pause");
 }
 
-bool returnToMenu()
-{
+bool returnToMenu() {
     char choice;
-    cout << "\n=== Do you want to return to menu? (y/n): ";
-    cin >> choice;
+    cout<<"\n=== Do you want to return to menu? (y/n): ";
+    cin>>choice;
     if (choice == 'y' || choice == 'Y')
-    {
-        return true;
-    }
-    else
-        return false;
+    {return true;
+	} else
+    return false;
 }
 
 void menu()
