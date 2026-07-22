@@ -102,6 +102,47 @@ void saveToFile()
     file.close(); 
 }
 
+void addRecord() {
+	system("cls");
+    if (record_count>=MAX_RECORDS) {
+        cout<<"\n== Record limit reached! ==\n" << endl;
+        return; }
+    cout<<"========== ADD NEW RECORD ==========\n\n";
+    Expense e;
+    e.id= record_count+1;
+    cout<< "== Enter Type (Income/Expense): ";
+    cin>> e.type;
+    cout<< "== Enter Category: ";
+    cin.ignore();
+    getline(cin, e.category);
+    cout<< "== Enter Title: ";
+    getline (cin, e.title);
+    cout << "== Enter Priority (High/Medium/Low): ";
+    cin >> e.priority;
+    do {
+    cout << "== Enter Amount: ";
+    cin >> e.amount;
+    if (e.amount <= 0)
+        cout << "Invalid amount! Try again.\n";
+} while (e.amount <= 0);
+    cout << "== Enter Date (dd-mm-yyyy): ";
+    cin.ignore();
+    getline(cin, e.date);
+    records[record_count]=e;
+    record_count++;
+    saveToFile();
+    cout<<"\n---Record added successfully!---" << endl;
+    if (e.priority=="High" || e.priority=="high" || e.priority =="1" ) {
+    cout<<"\n--High priority expense added!--"<<endl;
+	} else if (e.priority=="Medium" || e.priority=="medium" || e.priority =="2" ) {
+    cout<<"\n--Medium priority expense added!--"<<endl;
+	} else if 
+	(e.priority=="Low" || e.priority=="low" || e.priority =="3" ) {
+	cout<<"\n--Low priority expense added!--"<<endl; 
+   } else 
+   {
+   cout<<"\n-- No priority added! --\n";}
+}
 void menu()
 {
     system("cls");
