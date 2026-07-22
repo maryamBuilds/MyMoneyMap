@@ -67,6 +67,41 @@ bool returnToMenu() {
     return false;
 }
 
+void loadFromFile() 
+{
+    ifstream file(fileName.c_str()); // --> old compiler c_str converts string into const char
+    if (!file) {
+        return;  }
+    record_count=0;
+    while (record_count<MAX_RECORDS && file>>records[record_count].id) {
+        file.ignore();
+        getline(file, records[record_count].type);
+        getline(file, records[record_count].category);
+        getline(file, records[record_count].title);
+        getline(file, records[record_count].priority);
+        file>>records[record_count].amount;
+        file.ignore();
+        getline(file, records[record_count].date);
+        record_count++; 
+		}
+    file.close(); 
+}
+
+void saveToFile()
+{
+    ofstream file(fileName.c_str());
+    for (int i = 0; i < record_count; i++) {
+        file<<records[i].id<<endl;
+        file<<records[i].type<<endl;
+        file<<records[i].category<<endl;
+        file<<records[i].title<<endl;
+        file<<records[i].priority<<endl;
+        file<<records[i].amount<<endl;
+        file<<records[i].date<<endl; 
+		}
+    file.close(); 
+}
+
 void menu()
 {
     system("cls");
