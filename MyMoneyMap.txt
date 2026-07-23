@@ -1,0 +1,63 @@
+1
+Income
+Job
+Job
+High
+15000
+01 01 2026
+2
+income
+Travel
+Trip
+High
+5000
+03 01 2026
+3
+Expense
+Food
+Friends Meetup
+Medium
+3200
+01 01 2026
+4
+Expense
+Shopping
+Grocery
+Medium
+4500
+02 01 2026
+5
+Income
+Teaching
+Job
+Medium
+8000
+05 12 2025
+6
+expense
+Internet
+Bill
+Medium
+1200
+05 01 2026
+7
+Income
+Pocket Money
+January
+High
+3000
+01 01 2026
+8
+Expense
+Food
+Zinger
+Medium
+550
+01 01 2026
+9
+Expense
+Stationary
+Pens
+High
+800
+14 01 2026
