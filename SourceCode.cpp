@@ -143,6 +143,44 @@ void addRecord() {
    {
    cout<<"\n-- No priority added! --\n";}
 }
+
+void deleteRecord()
+{
+	system("cls");
+    int id;
+    cout << "========== DELETE RECORDS ==========\n\n";
+    cout << "-- Enter Record ID to delete: ";
+    cin >> id;
+    for (int i = 0; i < record_count; i++) {
+        if (records[i].id == id) {
+        	system("cls");
+            cout << "========== SELECTED RECORDS ==========\n";
+            cout << "--ID       : "<<records[i].id<<endl;
+            cout << "--Type     : "<<records[i].type<<endl;
+            cout << "--Category : "<<records[i].category<<endl;
+            cout << "--Title    : "<<records[i].title<<endl;
+            cout << "--Priority : "<<records[i].priority<<endl;
+            cout << "--Amount   : "<<records[i].amount<<endl;
+            cout << "--Date     : "<<records[i].date<<endl;
+            char confirm;
+            cout<<"\n==Are you sure you want to delete this record?(y/n): ";
+            cin>>confirm;
+            if (confirm != 'y' && confirm != 'Y') {
+                cout << "-- Deletion cancelled! --" << endl;
+                return; }
+            for (int j=i; j<record_count-1; j++) {
+                records[j] = records[j + 1];
+                records[j].id=j+1;
+            }
+            record_count--;
+            saveToFile();
+            cout << "--- Record deleted successfully! ---" << endl;
+            return;
+			}
+    }
+    cout << "--- Record not found! ---"<<endl;
+}
+
 void menu()
 {
     system("cls");
