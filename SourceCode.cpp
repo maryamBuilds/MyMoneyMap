@@ -181,6 +181,26 @@ void deleteRecord()
     cout << "--- Record not found! ---"<<endl;
 }
 
+void summary()
+{
+	system("cls");
+    float income=0, expense=0;
+    for (int i = 0; i<record_count; i++) {
+        if (records[i].type == "Income" || records[i].type == "income")
+            income += records[i].amount;
+        else if (records[i].type == "Expense" || records[i].type == "expense")
+            expense += records[i].amount; 
+	}
+    cout << "====== SUMMMARY OF YOUR RECORDS ======\n\n";
+    cout << "-- Total Income  : " << income << endl;
+    cout << "-- Total Expense : " << expense << endl;
+    cout << "-- Balance Left  : " << (income - expense) << endl;
+    if (expense > income) {
+    	cout << "\n-- Warning: Expenses are greater than income! --" << endl;
+	} else
+        cout << "\n-- Great! You are saving money. --" << endl;
+}
+
 void menu()
 {
     system("cls");
