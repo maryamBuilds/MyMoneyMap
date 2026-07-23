@@ -144,6 +144,89 @@ void addRecord() {
    cout<<"\n-- No priority added! --\n";}
 }
 
+void updateRecord()
+{
+    system("cls");
+    int id;
+    cout << "========== UPDATE RECORD ==========\n\n";
+    cout << "Enter Record ID: ";
+    cin >> id;
+    for (int i = 0; i < record_count; i++) {
+        if (records[i].id == id)
+		{
+            Expense* ptr = &records[i];
+            char more;
+            do {
+                system("cls");
+                cout << "========== SELECTED RECORDS ==========\n";
+                cout << "ID       : " << ptr->id << endl;
+                cout << "Type     : " << ptr->type << endl;
+                cout << "Category : " << ptr->category << endl;
+                cout << "Title    : " << ptr->title << endl;
+                cout << "Priority : " << ptr->priority << endl;
+                cout << "Amount   : " << ptr->amount << endl;
+                cout << "Date     : " << ptr->date << endl;
+                int choice;
+                cout << "\nWhat do you want to update?\n";
+                cout << "1. Type\n";
+                cout << "2. Category\n";
+                cout << "3. Title\n";
+                cout << "4. Priority\n";
+                cout << "5. Amount\n";
+                cout << "6. Date\n";
+                cout << "0. Finish Updating\n";
+                cout << "Enter choice: ";
+                cin >> choice;
+                cin.ignore();
+                switch (choice) {
+                    case 1:
+                        cout << "Enter new Type: ";
+                        getline(cin, ptr->type);
+                        break;
+                    case 2:
+                        cout << "Enter new Category: ";
+                        getline(cin, ptr->category);
+                        break;
+                    case 3:
+                        cout << "Enter new Title: ";
+                        getline(cin, ptr->title);
+                        break;
+                    case 4:
+                        cout << "Enter new Priority: ";
+                        getline(cin, ptr->priority);
+                        break;
+                    case 5:
+                        do {
+                            cout<<"Enter new Amount: ";
+                            cin>> ptr->amount;
+                            if (ptr->amount<=0)
+                                cout<<"Invalid amount! Try again.\n";
+                        } while (ptr->amount <= 0);
+                        cin.ignore();
+                        break;
+                    case 6:
+                        cout << "Enter new Date: ";
+                        getline(cin, ptr->date);
+                        break;
+                    case 0:
+                        saveToFile();
+                        cout << "\n-- Record updated successfully! --\n";
+                        return;
+                    default:
+                        cout << "-- Invalid choice! --\n";
+                }
+                cout << "\nUpdate another field? (y/n): ";
+                cin >> more;
+                cin.ignore();
+            } while (more == 'y' || more == 'Y');
+            saveToFile();
+            cout << "\n-- Record updated successfully! --\n";
+            return;
+        }
+    }
+    cout << "\n-- Record not found! --\n";
+}
+
 void deleteRecord()
 {
 	system("cls");
