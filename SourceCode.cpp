@@ -144,6 +144,30 @@ void addRecord() {
    cout<<"\n-- No priority added! --\n";}
 }
 
+void viewRecords() {
+	system("cls");
+    if (record_count==0) {
+        cout<<"-- No records found! --"<<endl;
+        return; }
+    cout<<"====================== Y O U R   A L L   R E C O R D S ======================\n\n";
+    cout<<left<<setw(5)<<"ID |"
+	    <<setw(10)<<" Type  |"
+        <<setw(15)<<" Category |"
+        <<setw(12)<<"Title  |"
+        <<setw(12)<<"Priority |"
+        <<setw(12)<<"Amount |"
+        <<setw(12)<<"  Date    |"<< endl;
+    for (int i=0; i<record_count; i++) {
+        cout<<setw(5)<<records[i].id
+		    <<setw(10)<<records[i].type
+            <<setw(15)<<records[i].category
+            <<setw(15)<<records[i].title
+            <<setw(10)<<records[i].priority
+            <<setw(10)<<records[i].amount
+            <<setw(12)<<records[i].date<<endl;
+			}
+}
+
 void updateRecord()
 {
     system("cls");
